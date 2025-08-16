@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Analysis Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</head>
+<body>
+    <div class="landing-container">
+        <img src="1a.png" alt="Shaigan Logo" class="logo glowing">
+        <h1>Welcome to the Power Analysis Dashboard for Daily Sales Analysis</h1>
+        <form id="userForm">
+            <input type="text" id="fullName" placeholder="Full Name" required>
+            <input type="text" id="designation" placeholder="Designation" required>
+            <input type="text" id="team" placeholder="Team" required>
+            <button type="submit">Submit</button>
+        </form>
+        <button id="uploadBtn">Upload Data</button>
+    </div>
+    <script>
+        const projectUrl = 'https://nfwuztbyvbasaqbpyojr.supabase.co';
+        const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5md3V6dGJ5dmJhc2FxYnB5b2pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUwNjQ4NzcsImV4cCI6MjA3MDY0MDg3N30.DhEvb6H9kczxdD1N9_d6DmDkk6_9sUGZfKSFk7hYLdQ';
+        const supabase = Supabase.createClient(projectUrl, apiKey);
+
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            window.location.href = 'choose_dashboard.html';  // Redirect to choice if returning
+        }
+
+        document.getElementById('userForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const fullName = document.getElementById('fullName').value;
+            const designation = document.getElementById('designation').value;
+            const team = document.getElementById('team').value;
+            const userData = { fullName, designation, team };
+            localStorage.setItem('user', JSON.stringify(userData));
+            await supabase.from('PowerBi').insert([{ FullName: fullName, Designation: designation, Team: team }]);
+            window.location.href = 'choose_dashboard.html';
+        });
+
+        document.getElementById('uploadBtn').addEventListener('click', () => {
+            const username = prompt('Enter username:');
+            const password = prompt('Enter password:');
+            if (username === 'Shaigan' && password === 'abc123') {
+                window.location.href = 'upload.html';
+            } else {
+                alert('Invalid credentials');
+            }
+        });
+    </script>
+</body>
+</html>

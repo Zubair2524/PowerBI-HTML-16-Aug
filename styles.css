@@ -1,0 +1,16 @@
+body { background: #001f3f; color: white; font-family: Arial, sans-serif; }
+.container { max-width: 1200px; margin: auto; padding: 20px; }
+.landing-container { text-align: center; }
+.logo { width: 200px; animation: glow 2s infinite; }
+@keyframes glow { 0% { box-shadow: 0 0 5px #FFD700; } 50% { box-shadow: 0 0 20px #FFD700; } 100% { box-shadow: 0 0 5px #FFD700; } }
+form { display: flex; flex-direction: column; max-width: 300px; margin: auto; }
+input, select, button { margin: 10px 0; padding: 10px; }
+.golden { color: #FFD700; }
+.glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 20px; margin: 10px; }
+.kpi-cards { display: flex; flex-wrap: wrap; justify-content: space-around; }
+.card { width: 200px; text-align: center; }
+.filters { display: flex; flex-wrap: wrap; justify-content: center; }
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { border: 1px solid rgba(255,255,255,0.2); padding: 10px; text-align: left; cursor: pointer; }
+header { text-align: center; color: #FFD700; }
