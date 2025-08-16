@@ -26,9 +26,7 @@
         <button onclick="window.location.href='choose_dashboard.html'">Go to Dashboard</button>
     </div>
     <script>
-        const supabase = Supabase.createClient('https://nfwuztbyvbasaqbpyojr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5md3V6dGJ5dmJhc2FxYnB5b2pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUwNjQ4NzcsImV4cCI6MjA3MDY0MDg3N30.DhEvb6H9kczxdD1N9_d6DmDkk6_9sUGZfKSFk7hYLdQ');
-
-        document.getElementById('uploadBtn').addEventListener('click', async () => {
+        const supabase = supabase.createClient('https://nfwuztbyvbasaqbpyojr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5md3V6dGJ5dmJhc2FxYnB5b2pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUwNjQ4NzcsImV4cCI6MjA3MDY0MDg3N30.DhEvb6H9kczxdD1N9_d6DmDkk6_9sUGZfKSFk7hYLdQ');  // Changed to lowercase 's'        document.getElementById('uploadBtn').addEventListener('click', async () => {
             const file = document.getElementById('fileInput').files[0];
             const fileType = document.getElementById('fileType').value;
             if (!file) return alert('Select file');
@@ -79,4 +77,5 @@
         });
     </script>
 </body>
+
 </html>
