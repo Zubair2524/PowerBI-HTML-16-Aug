@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaigan Dashboard - Power Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="1a.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-page">
+    <header class="dashboard-header glassmorphic">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="1a.png" alt="Shaigan" class="header-logo">
+                <h1 class="golden-text">Power Analysis Dashboard</h1>
+            </div>
+            <div class="user-info">
+                <span class="golden-text">Welcome, <span id="userName">User</span></span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="filters-section glassmorphic">
+        <div class="filters-container">
+            <select id="teamFilter" class="filter-dropdown">
+                <option value="">All Teams</option>
+            </select>
+            <select id="monthFilter" class="filter-dropdown">
+                <option value="">YTD</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <select id="dayFilter" class="filter-dropdown">
+                <option value="">All Days</option>
+            </select>
+            <select id="productFilter" class="filter-dropdown">
+                <option value="">All Products</option>
+                <option value="Brand A">Brand A</option>
+                <option value="Brand B">Brand B</option>
+                <option value="Brand C">Brand C</option>
+                <option value="Brand D">Brand D</option>
+                <option value="Brand E">Brand E</option>
+            </select>
+            <button id="clearFilters" class="clear-filters-btn golden-btn">Clear All Filters</button>
+        </div>
+    </div>
+
+    <div class="kpi-cards-section">
+        <div class="kpi-card glassmorphic" data-kpi="chemist">
+            <div class="kpi-icon">👨‍⚕️</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Chemist Count</h3>
+                <p class="kpi-value" id="chemistCount">1,245</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="daysPassed">
+            <div class="kpi-icon">📅</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Days Passed</h3>
+                <p class="kpi-value" id="daysPassed">16</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="daysRemaining">
+            <div class="kpi-icon">⏰</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Days Remaining</h3>
+                <p class="kpi-value" id="daysRemaining">15</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="runRate">
+            <div class="kpi-icon">📈</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Run Rate</h3>
+                <p class="kpi-value" id="runRate">Rs. 125,450</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="valueSales">
+            <div class="kpi-icon">💰</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Value Sales</h3>
+                <p class="kpi-value" id="valueSales">Rs. 2,007,200</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="valueTarget">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Value Target</h3>
+                <p class="kpi-value" id="valueTarget">Rs. 2,500,000</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="valuePercentage">
+            <div class="kpi-icon">📊</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Value %</h3>
+                <p class="kpi-value" id="valuePercentage">80.3%</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="valueGrowth">
+            <div class="kpi-icon">📈</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Value Growth LY %</h3>
+                <p class="kpi-value" id="valueGrowth">+15.2%</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="unitSales">
+            <div class="kpi-icon">📦</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Unit Sales</h3>
+                <p class="kpi-value" id="unitSales">45,230</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="unitTarget">
+            <div class="kpi-icon">🏁</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Unit Target</h3>
+                <p class="kpi-value" id="unitTarget">55,000</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="unitPercentage">
+            <div class="kpi-icon">📋</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Unit %</h3>
+                <p class="kpi-value" id="unitPercentage">82.2%</p>
+            </div>
+        </div>
+        
+        <div class="kpi-card glassmorphic" data-kpi="unitGrowth">
+            <div class="kpi-icon">🚀</div>
+            <div class="kpi-content">
+                <h3 class="golden-text">Unit Growth LY %</h3>
+                <p class="kpi-value" id="unitGrowth">+12.8%</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="charts-section">
+        <div class="chart-container glassmorphic">
+            <h3 class="golden-text">Top 5 Brands by Value Sales</h3>
+            <canvas id="topBrandsValueChart"></canvas>
+        </div>
+        
+        <div class="chart-container glassmorphic">
+            <h3 class="golden-text">Top 5 Brands by Unit Sales</h3>
+            <canvas id="topBrandsUnitChart"></canvas>
+        </div>
+        
+        <div class="chart-container glassmorphic">
+            <h3 class="golden-text">Daily Trend (60 Days)</h3>
+            <canvas id="dailyTrendChart"></canvas>
+        </div>
+        
+        <div class="chart-container glassmorphic">
+            <h3 class="golden-text">Monthly Trend (13 Months)</h3>
+            <canvas id="monthlyTrendChart"></canvas>
+        </div>
+        
+        <div class="chart-container glassmorphic">
+            <h3 class="golden-text">Zonal Brand Share</h3>
+            <canvas id="zonalShareChart"></canvas>
+        </div>
+        
+        <div class="chart-container glassmorphic">
+            <h3 class="golden-text">Territory Performance</h3>
+            <canvas id="territoryChart"></canvas>
+        </div>
+    </div>
+
+    <div class="table-section glassmorphic">
+        <h3 class="golden-text">Detailed Performance Table</h3>
+        <div class="table-container">
+            <table id="performanceTable">
+                <thead>
+                    <tr class="golden-text">
+                        <th>Team/Zone</th>
+                        <th>Chemist Name</th>
+                        <th>TM/ASM/SM</th>
+                        <th>Value Sales (Rs.)</th>
+                        <th>Value Target (Rs.)</th>
+                        <th>Value %</th>
+                        <th>Value Growth LY %</th>
+                        <th>Unit Sales</th>
+                        <th>Unit Target</th>
+                        <th>Unit %</th>
+                        <th>Unit Growth LY %</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Dynamic content will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
