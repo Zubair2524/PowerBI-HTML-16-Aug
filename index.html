@@ -22,8 +22,8 @@
     </div>
     <script>
         const projectUrl = 'https://nfwuztbyvbasaqbpyojr.supabase.co';
-        const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5md3V6dGJ5dmJhc2FxYnB5b2pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUwNjQ4NzcsImV4cCI6MjA3MDY0MDg3N30.DhEvb6H9kczxdD1N9_d6DmDkk6_9sUGZfKSFk7hYLdQ';
-        const supabase = Supabase.createClient(projectUrl, apiKey);
+    const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5md3V6dGJ5dmJhc2FxYnB5b2pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUwNjQ4NzcsImV4cCI6MjA3MDY0MDg3N30.DhEvb6H9kczxdD1N9_d6DmDkk6_9sUGZfKSFk7hYLdQ';
+    const supabase = supabase.createClient(projectUrl, apiKey);  // Changed to lowercase 's'
 
         const user = JSON.parse(localStorage.getItem('user'));
         if (user) {
@@ -52,4 +52,5 @@
         });
     </script>
 </body>
+
 </html>
